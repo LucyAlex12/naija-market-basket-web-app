@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Naija Market Basket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Nigerian food price tracker</p>
+        <h1>Build a market basket before you enter the market.</h1>
+        <p>Compare sample prices for rice, garri, beans, tomatoes, plantain, and more across Nigerian cities.</p>
+      </div>
+      <div class="total-card">
+        <span>Basket total</span>
+        <strong id="basketTotal">₦0</strong>
+      </div>
+    </section>
+
+    <section class="controls">
+      <label>City
+        <select id="citySelect">
+          <option>Lagos</option>
+          <option>Abuja</option>
+          <option>Port Harcourt</option>
+          <option>Enugu</option>
+        </select>
+      </label>
+      <input id="search" placeholder="Search rice, garri, pepper">
+      <button id="clearBasket">Clear basket</button>
+    </section>
+
+    <section class="layout">
+      <div class="products" id="products"></div>
+      <aside class="basket">
+        <h2>Your basket</h2>
+        <div id="basketList"></div>
+      </aside>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
