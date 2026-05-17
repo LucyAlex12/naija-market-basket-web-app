@@ -12,14 +12,46 @@
 body {
   margin: 0;
   font-family: Inter, "Segoe UI", Arial, sans-serif;
-  background: var(--cream);
+  background:
+    radial-gradient(ellipse 32rem 24rem at var(--cursor-x, 18%) var(--cursor-y, 16%), rgba(15, 118, 110, 0.18), transparent 72%),
+    radial-gradient(ellipse 28rem 22rem at 88% 14%, rgba(245, 158, 11, 0.22), transparent 72%),
+    linear-gradient(135deg, #fff9ec, #ecfdf5 46%, #fff7ed);
   color: var(--ink);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  animation: marketFloat 16s ease-in-out infinite alternate;
+  background:
+    radial-gradient(circle, rgba(15, 118, 110, 0.16) 0 7px, transparent 8px),
+    radial-gradient(circle, rgba(245, 158, 11, 0.18) 0 6px, transparent 7px);
+  background-position: 0 0, 32px 36px;
+  background-size: 84px 84px;
+  content: "";
+  inset: 0;
+  mask-image: radial-gradient(ellipse 84% 70% at 50% 34%, black 12%, transparent 86%);
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+}
+
+body::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  content: "";
+  inset: 0;
+  opacity: 0.7;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
 }
 
 .shell {
   width: min(1150px, calc(100% - 32px));
   margin: 0 auto;
   padding: 38px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
@@ -49,10 +81,16 @@ p { color: var(--muted); }
 .controls,
 .product,
 .basket {
-  background: white;
+  background: rgba(255, 255, 255, 0.74);
   border: 1px solid var(--line);
   border-radius: 8px;
+  backdrop-filter: blur(16px);
   box-shadow: 0 16px 36px rgba(19, 32, 29, 0.08);
+}
+
+@keyframes marketFloat {
+  from { transform: translate3d(-1%, 0, 0) scale(1); }
+  to { transform: translate3d(1%, -1%, 0) scale(1.03); }
 }
 
 .total-card {

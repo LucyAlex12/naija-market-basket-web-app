@@ -67,3 +67,8 @@ document.querySelector("#search").addEventListener("input", renderProducts);
 
 renderProducts();
 renderBasket();
+
+document.addEventListener("pointermove", event => {
+  document.body.style.setProperty("--cursor-x", `${(event.clientX / window.innerWidth) * 100}%`);
+  document.body.style.setProperty("--cursor-y", `${(event.clientY / window.innerHeight) * 100}%`);
+});
